@@ -13,7 +13,7 @@ namespace UserService.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class RoleMastersController : ControllerBase
     {
         private readonly DBDigitalBooksContext _context;

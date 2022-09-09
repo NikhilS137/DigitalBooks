@@ -33,6 +33,22 @@
       "UpstreamHttpMethod": [ "Get" ]
     },
     {
+      //https://localhost:7212/api/BookMasters/SearchBooks?categoryID=Book2&authorID=1&price=100
+      "DownstreamPathTemplate": "/api/BookMasters/SearchBooks?categoryID={c}&authorID={aID}&price={p}",
+      "DownstreamScheme": "https",
+      "downstreamHttpMethod": "Get",
+      "RouteIsCaseSensitive": false,
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "7212"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/SearchBooks/{c}/{aID}/{p}",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
       //https://localhost:7212/api/RoleMasters
       "DownstreamPathTemplate": "/api/RoleMasters",
       "DownstreamScheme": "https",
@@ -63,7 +79,56 @@
       ],
       "UpstreamPathTemplate": "/books/Update/{id}",
       "UpstreamHttpMethod": [ "Put" ]
+    },
+    {
+      //https://localhost:7212/api/CategoryMasters
+      "DownstreamPathTemplate": "/api/CategoryMasters",
+      "DownstreamScheme": "https",
+      "downstreamHttpMethod": "Get",
+      "RouteIsCaseSensitive": false,
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "7212"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/CategoryMasters/CategoryList",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      //https://localhost:7212/api/UserMasters
+      "DownstreamPathTemplate": "/api/UserMasters/AuthorList",
+      "DownstreamScheme": "https",
+      "downstreamHttpMethod": "Get",
+      "RouteIsCaseSensitive": false,
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "7212"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/UserMasters/AuthorList",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      //https://localhost:7212/api/UserMasters
+      "DownstreamPathTemplate": "/api/UserMasters",
+      "DownstreamScheme": "https",
+      "downstreamHttpMethod": "Post",
+      "RouteIsCaseSensitive": false,
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "7212"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/UserMasters/AddUser",
+      "UpstreamHttpMethod": [ "Post" ]
     }
+
   ],
   "GlobalConfiguration": {
     "BaseUrl": "https://localhost:7271/"

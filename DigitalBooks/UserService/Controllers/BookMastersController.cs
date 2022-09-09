@@ -184,5 +184,53 @@ namespace UserService.Controllers
 
             return lsBookMaster;
         }
+
+        [HttpGet]
+        [Route("SearchBooks")]
+        public List<BookMasterViewModel> SearchBooks(int categoryID,int authorID, decimal price )
+        {
+            List<BookMasterViewModel> lsBookMaster = new List<BookMasterViewModel>();
+            if (_context.BookMasters == null)
+            {
+                return lsBookMaster;
+            }
+
+            try
+            {
+                lsBookMaster = (from b in _context.BookMasters
+                                join users in _context.UserMasters on b.UserId equals users.UserId
+                                join category in _context.CategoryMasters on b.CategoryId equals category.CategoryId
+                                where b.CategoryId == categoryID && b.UserId == authorID
+                                && b.Price == price
+                                && b.Active == true
+                                select new
+                                {
+                                    BookId = b.BookId,
+                                    BookName = b.BookName,
+                                    Author = users.FirstName + " " + users.LastName,
+                                    Publisher = b.Publisher,
+                                    Price = b.Price,
+                                    PublishedDate = b.PublishedDate,
+                                    CategoryName = category.CategoryName
+
+                                }).ToList()
+                                .Select(x => new BookMasterViewModel()
+                                {
+                                    BookId = x.BookId,
+                                    Title = x.BookName,
+                                    Author = x.Author,
+                                    Publisher = x.Publisher,
+                                    Price = Convert.ToDouble(x.Price),
+                                    PublishedDate = x.PublishedDate,
+                                    CategoryName = x.CategoryName
+                                }).ToList();
+            }
+            catch (Exception ex)
+            {
+                return lsBookMaster;
+            }
+
+            return lsBookMaster;
+        }
     }
 }

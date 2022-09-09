@@ -142,5 +142,19 @@ namespace UserService.Controllers
         {
             return (_context.UserMasters?.Any(e => e.UserId == id)).GetValueOrDefault();
         }
+
+
+        // GET: Get Author List
+        [HttpGet]
+        [Route("AuthorList")]
+        public async Task<ActionResult<IEnumerable<UserMaster>>> AuthorList()
+        {
+            if (_context.UserMasters == null)
+            {
+                return NotFound();
+            }
+            return await _context.UserMasters.Where(u => u.RoleId == 1).ToListAsync();
+        }
+
     }
 }

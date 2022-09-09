@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Nikhil\\DigitalBooks\\AuthServer\\AuthServer.csproj": {}
+    "D:\\Nikhil\\Git\\DigitalBooks\\DigitalBooks\\AuthServer\\AuthServer.csproj": {}
   },
   "projects": {
-    "D:\\Nikhil\\DigitalBooks\\AuthServer\\AuthServer.csproj": {
+    "D:\\Nikhil\\Git\\DigitalBooks\\DigitalBooks\\AuthServer\\AuthServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Nikhil\\DigitalBooks\\AuthServer\\AuthServer.csproj",
+        "projectUniqueName": "D:\\Nikhil\\Git\\DigitalBooks\\DigitalBooks\\AuthServer\\AuthServer.csproj",
         "projectName": "AuthServer",
-        "projectPath": "D:\\Nikhil\\DigitalBooks\\AuthServer\\AuthServer.csproj",
+        "projectPath": "D:\\Nikhil\\Git\\DigitalBooks\\DigitalBooks\\AuthServer\\AuthServer.csproj",
         "packagesPath": "C:\\Users\\cogdotnet1692\\.nuget\\packages\\",
-        "outputPath": "D:\\Nikhil\\DigitalBooks\\AuthServer\\obj\\",
+        "outputPath": "D:\\Nikhil\\Git\\DigitalBooks\\DigitalBooks\\AuthServer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

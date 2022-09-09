@@ -8,6 +8,7 @@
         public string Publisher { get; set; }
         public double Price { get; set; }
         public DateTime PublishedDate { get; set; }
+        public string CategoryName { get; set; }
 
     }
 }

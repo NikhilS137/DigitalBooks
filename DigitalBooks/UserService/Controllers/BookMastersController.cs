@@ -200,8 +200,8 @@ namespace UserService.Controllers
                 lsBookMaster = (from b in _context.BookMasters
                                 join users in _context.UserMasters on b.UserId equals users.UserId
                                 join category in _context.CategoryMasters on b.CategoryId equals category.CategoryId
-                                where b.CategoryId == categoryID && b.UserId == authorID
-                                && b.Price == price
+                                where b.CategoryId == categoryID || b.UserId == authorID
+                                || b.Price == price
                                 && b.Active == true
                                 select new
                                 {
@@ -211,7 +211,8 @@ namespace UserService.Controllers
                                     Publisher = b.Publisher,
                                     Price = b.Price,
                                     PublishedDate = b.PublishedDate,
-                                    CategoryName = category.CategoryName
+                                    CategoryName = category.CategoryName,
+                                    Active = b.Active
 
                                 }).ToList()
                                 .Select(x => new BookMasterViewModel()
@@ -222,7 +223,8 @@ namespace UserService.Controllers
                                     Publisher = x.Publisher,
                                     Price = Convert.ToDouble(x.Price),
                                     PublishedDate = x.PublishedDate,
-                                    CategoryName = x.CategoryName
+                                    CategoryName = x.CategoryName,
+                                    Active = x.Active
                                 }).ToList();
             }
             catch (Exception ex)
@@ -231,6 +233,45 @@ namespace UserService.Controllers
             }
 
             return lsBookMaster;
+        }
+        [HttpPut("UpdateBookStatus/{BookId}/{UserID}/{Status}")]
+        [Authorize]
+        public async Task<IActionResult> UpdateBookStatus(int BookId, int UserID, bool Status)
+        {
+            if (BookId < 1)
+            {
+                return BadRequest();
+            }
+
+            if (BookMasterWithAuthorExists(BookId, UserID))
+            {
+                var book = _context.BookMasters.Find(BookId);
+                book.Active = Status;
+                book.ModifiedDate = DateTime.Now;
+                _context.Entry(book).State = EntityState.Modified;
+                //context.Entry(user).State = Entitystate.Modified;
+            }               
+            else
+                return NotFound();
+
+            try
+            {
+                _context.SaveChanges();
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!BookMasterExists(BookId))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
         }
     }
 }

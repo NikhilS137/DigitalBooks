@@ -25,6 +25,6 @@ namespace UserService.Models
 
         [ForeignKey("BookId")]
         [InverseProperty("Purchases")]
-        public virtual BookMaster Book { get; set; } = null!;
+        public virtual BookMaster? Book { get; set; } = null!;
     }
 }

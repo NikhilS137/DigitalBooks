@@ -9,24 +9,31 @@ namespace AuthServer.Models
         public string userName { get; set; }
         public string password { get; set; }
       
-        public bool ValidateCredentials(string UserName, string Password)
+        public UserMaster ValidateCredentials(string UserName, string Password)
         {
+            UserMaster userMaster1 = null;
 
             if (_context.UserMasters == null)
             {
-                return false;
-            }
-            
-            var userMaster = (from x in _context.UserMasters
-                               where x.UserName == UserName && x.Password == EncryptionDecryption.EncodePasswordToBase64(Password)
-                               select x.UserId).SingleOrDefault();
-
-            if (userMaster > 0)
-            {
-                return true;
+                return userMaster1;
+               // return false;
             }
 
-            return false;
+            //var userMaster = (from x in _context.UserMasters
+            //                   where x.UserName == UserName && x.Password == EncryptionDecryption.EncodePasswordToBase64(Password)
+            //                   select x.UserId).SingleOrDefault();
+
+            userMaster1 = (from x in _context.UserMasters
+                              where x.UserName == UserName && x.Password == EncryptionDecryption.EncodePasswordToBase64(Password)
+                              select x).SingleOrDefault();
+
+            //if (userMaster > 0)
+            //{
+            //    return true;
+            //}
+
+            //return false;
+            return userMaster1;
 
         }
     }

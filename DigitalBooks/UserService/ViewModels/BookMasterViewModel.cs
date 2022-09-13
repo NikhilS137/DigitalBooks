@@ -9,6 +9,9 @@
         public double Price { get; set; }
         public DateTime PublishedDate { get; set; }
         public string CategoryName { get; set; }
+        public string Email { get; set; }
+        public string BookContent { get; set; }
+        public bool Active { get; set; }
 
     }
 }

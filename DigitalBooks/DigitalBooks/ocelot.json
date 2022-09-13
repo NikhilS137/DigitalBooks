@@ -127,6 +127,86 @@
       ],
       "UpstreamPathTemplate": "/UserMasters/AddUser",
       "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      //https://localhost:7212/api/BookMasters
+      "DownstreamPathTemplate": "/api/BookMasters",
+      "DownstreamScheme": "https",
+      "downstreamHttpMethod": "Post",
+      "RouteIsCaseSensitive": false,
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "7212"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Book/AddBook",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      //https://localhost:7212/api/Purchases
+      "DownstreamPathTemplate": "/api/Purchases",
+      "DownstreamScheme": "https",
+      "downstreamHttpMethod": "Post",
+      "RouteIsCaseSensitive": false,
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "7212"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Purchases/buybook",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      //https://localhost:7212/api/Purchases
+      "DownstreamPathTemplate": "/api/Purchases/GetPurchasedBookHistory?EmailId={EmailID}",
+      "DownstreamScheme": "https",
+      "downstreamHttpMethod": "Get",
+      "RouteIsCaseSensitive": false,
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "7212"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Purchases/BookHistory/{EmailID}",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      //https://localhost:7212/api/GetBooksWithStatus
+      "DownstreamPathTemplate": "/api/Purchases/GetBooksWithStatus?EmailId={EmailID}",
+      "DownstreamScheme": "https",
+      "downstreamHttpMethod": "Get",
+      "RouteIsCaseSensitive": false,
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "7212"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/GetBooksWithStatus/{EmailID}",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      //https://localhost:7212/api/BookMasters/UpdateBookStatus/{id}/{UserID}/{Status}
+      "DownstreamPathTemplate": "/api/BookMasters/UpdateBookStatus/{BookId}/{UserID}/{Status}",
+      "DownstreamScheme": "https",
+      "downstreamHttpMethod": "Put",
+      "RouteIsCaseSensitive": false,
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "7212"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/UpdateBookStatus/{BookId}/{UserID}/{Status}",
+      "UpstreamHttpMethod": [ "Put" ]
     }
 
   ],

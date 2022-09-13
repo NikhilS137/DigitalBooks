@@ -61,10 +61,11 @@ app.MapControllers();
 //    };
 //}).WithName("Validate");
 
-app.MapPost("/Login", [AllowAnonymous] (UserValidationModel request, HttpContext http, ITokenService tokenService) =>
+app.MapPost("/Login", object (UserValidationModel request, HttpContext http, ITokenService tokenService) =>
 {
+    var user = request.ValidateCredentials(request.userName, request.password);
 
-    if (request.ValidateCredentials(request.userName, request.password))
+    if (user != null)
     {
         var token = tokenService.BuildToken(builder.Configuration["Jwt:Key"],
                                               builder.Configuration["Jwt:Issuer"],
@@ -76,12 +77,15 @@ app.MapPost("/Login", [AllowAnonymous] (UserValidationModel request, HttpContext
         return new
         {
             Token = token,
+            User = user,
             IsAuthenticated = true,
+            
         };
     }
     return new
     {
         Token = string.Empty,
+        User = user,
         IsAuthenticated = false,
     };
 }).WithName("Login");

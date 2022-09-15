@@ -184,7 +184,7 @@ namespace UserService.Controllers
                 Price = book.Price,
                 PublishedDate = book.PublishedDate,
                 CategoryName = category.CategoryName,
-                Email = pur.EmailId == null ? "NA" : pur.EmailId,
+                Email = (pur.EmailId == null  || pur.EmailId != EmailId ) ? "NA" : pur.EmailId,
                 BookContent = book.BookContent,
                 Active = book.Active
             }).ToList()
@@ -233,6 +233,7 @@ namespace UserService.Controllers
     //}).ToList();
 
             lsBookHistory = lsBookHistory.Where(x => x.Email == EmailId || x.Email == "NA").ToList();
+            lsBookHistory = lsBookHistory.GroupBy(x => x.BookId).Select(y => y.First()).ToList();
 
             return lsBookHistory;
         }

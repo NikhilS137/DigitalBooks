@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32811.315
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DigitalBooks", "DigitalBooks\DigitalBooks.csproj", "{56CC4F3B-F502-44F5-B027-BE5377D92986}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DigitalBooks", "DigitalBooks\DigitalBooks.csproj", "{56CC4F3B-F502-44F5-B027-BE5377D92986}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserService", "UserService\UserService.csproj", "{46FA2608-36B4-40C0-9577-6AFCE623D14D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserService", "UserService\UserService.csproj", "{46FA2608-36B4-40C0-9577-6AFCE623D14D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthServer", "AuthServer\AuthServer.csproj", "{B929F366-F208-4A27-8571-4A201CC020C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthServer", "AuthServer\AuthServer.csproj", "{B929F366-F208-4A27-8571-4A201CC020C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentFunctionApp", "PaymentFunctionApp\PaymentFunctionApp.csproj", "{E313A97F-3075-492C-85F2-D544D1084C6F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{B929F366-F208-4A27-8571-4A201CC020C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B929F366-F208-4A27-8571-4A201CC020C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B929F366-F208-4A27-8571-4A201CC020C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E313A97F-3075-492C-85F2-D544D1084C6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E313A97F-3075-492C-85F2-D544D1084C6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E313A97F-3075-492C-85F2-D544D1084C6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E313A97F-3075-492C-85F2-D544D1084C6F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

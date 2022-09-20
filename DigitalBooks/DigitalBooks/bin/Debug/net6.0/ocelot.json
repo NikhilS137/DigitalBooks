@@ -207,6 +207,22 @@
       ],
       "UpstreamPathTemplate": "/UpdateBookStatus/{BookId}/{UserID}/{Status}",
       "UpstreamHttpMethod": [ "Put" ]
+    },
+    {
+      //https://localhost:7212/api/Purchases/PurchaseBook
+      "DownstreamPathTemplate": "/api/Purchases/PurchaseBook",
+      "DownstreamScheme": "https",
+      "downstreamHttpMethod": "Post",
+      "RouteIsCaseSensitive": false,
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "7212"
+
+        }
+      ],
+      "UpstreamPathTemplate": "/Purchases/Purchasebook",
+      "UpstreamHttpMethod": [ "Post" ]
     }
 
   ],

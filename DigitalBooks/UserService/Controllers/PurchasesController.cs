@@ -100,6 +100,23 @@ namespace UserService.Controllers
             return CreatedAtAction("GetPurchase", new { id = purchase.PurchaseId }, purchase);
         }
 
+        [HttpPost]
+        [Route("PurchaseBook")]
+        public async Task<ActionResult<Purchase>> PurchaseBook(Purchase purchase)
+        {
+            if (_context.Purchases == null)
+            {
+                return  Problem("Entity set 'DBDigitalBooksContext.Purchases'  is null.");
+            }
+            bool result = false;
+            result = purchase.callPaymentAuzreFunPost();
+
+            if (result)
+                return Ok(purchase);
+            else
+                return BadRequest("Something went wrong"); 
+        }
+
         // DELETE: api/Purchases/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePurchase(int id)
